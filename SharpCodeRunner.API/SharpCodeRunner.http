@@ -1,0 +1,17 @@
+@SharpCodeRunner_HostAddress = http://localhost:5000
+
+POST {{SharpCodeRunner_HostAddress}}/api/CodeExecution/execute
+Content-Type: application/json
+
+{
+  "Code": "for (int i = 0; i < 10; i++)\n{\n    Console.WriteLine(\"hi\" + i);\n}"
+}
+
+###
+
+POST {{SharpCodeRunner_HostAddress}}/api/CodeExecution/execute
+Content-Type: application/json
+
+{
+  "Code": "Console.WriteLine(\"hi\");"
+}
