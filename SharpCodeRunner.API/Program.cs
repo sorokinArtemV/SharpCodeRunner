@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using SharpCodeRunner.DatabaseContext;
 using SharpCodeRunner.Repositories;
 using SharpCodeRunner.RepositoryContracts;
-using SharpCodeRunner.ServiceContracts;
 using SharpCodeRunner.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUsersCodeRepository, UsersCodeRepository>();
-builder.Services.AddScoped<IUsersCodeAdderService, UserCodeAdderService>();
+builder.Services.AddScoped<UserCodeAdderService>();
 builder.Services.AddScoped<CodeExecutionService>();
 builder.Services.AddDbContext<CodeExecutionDbContext>(opts =>
 {

@@ -3,7 +3,10 @@ using SharpCodeRunner.Entities;
 
 namespace SharpCodeRunner.Dto;
 
-public class UserCodeDto
+/// <summary>
+/// Data Transfer Object for UserCode
+/// </summary>
+public sealed class UserCodeDto
 {
     public Guid Id { get; set; }
 
@@ -12,6 +15,10 @@ public class UserCodeDto
 
     public string? ErrorMessage { get; set; }
 
+    /// <summary>
+    ///  Converts UserCodeDto to UserCode
+    /// </summary>
+    /// <returns></returns>
     public UserCode ToUserCode()
     {
         return new UserCode

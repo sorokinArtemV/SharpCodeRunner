@@ -6,8 +6,16 @@ using SharpCodeRunner.Dto;
 
 namespace SharpCodeRunner.Services;
 
-public class CodeExecutionService
+/// <summary>
+/// Class for compiling incoming text to C# code
+/// </summary>
+public sealed class CodeExecutionService
 {
+    /// <summary>
+    /// Compiles incoming text to C# code
+    /// </summary>
+    /// <param name="userCode">Code to be executed</param>
+    /// <returns>Result of execution. Result of executed code or error message</returns>
     public async Task<UserCodeDto> ExecuteCodeAsync(UserCodeDto userCode)
     {
         var scriptOptions = ScriptOptions.Default

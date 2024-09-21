@@ -5,7 +5,10 @@ using SharpCodeRunner.RepositoryContracts;
 
 namespace SharpCodeRunner.Repositories;
 
-public class UsersCodeRepository : IUsersCodeRepository
+/// <summary>
+/// Implementation of <see cref="IUsersCodeRepository"/>
+/// </summary>
+public sealed class UsersCodeRepository : IUsersCodeRepository
 {
     private readonly CodeExecutionDbContext _db;
 

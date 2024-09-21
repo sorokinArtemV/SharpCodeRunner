@@ -3,8 +3,12 @@ using SharpCodeRunner.Dto;
 
 namespace SharpCodeRunner.Entities;
 
-public class UserCode
+/// <summary>
+/// Base UserCode entity
+/// </summary>
+public sealed class UserCode
 {
+    [Required]
     public Guid Id { get; set; }
 
     [Required]
@@ -13,6 +17,9 @@ public class UserCode
 
 public static class UserCodeExtensions
 {
+    /// <summary>
+    /// Converts UserCode to UserCodeDto
+    /// </summary>
     public static UserCodeDto ToDto(this UserCode userCode)
     {
         return new UserCodeDto
