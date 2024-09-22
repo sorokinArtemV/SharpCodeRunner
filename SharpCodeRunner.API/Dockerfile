@@ -1,15 +1,15 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 80
+EXPOSE 81
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["SharpCodeRunner.API/SharpCodeRunner.API.csproj", "SharpCodeRunner.API/"]
-RUN dotnet restore "SharpCodeRunner.API/SharpCodeRunner.API.csproj"
+COPY ["SharpCodeRunner.API.csproj", "SharpCodeRunner.API.csproj"]
+RUN dotnet restore "SharpCodeRunner.API.csproj"
 COPY . .
-WORKDIR "/src/SharpCodeRunner.API"
+WORKDIR "/src/"
 RUN dotnet build "SharpCodeRunner.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
