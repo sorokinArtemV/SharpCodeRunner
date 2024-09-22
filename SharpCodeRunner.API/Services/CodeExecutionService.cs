@@ -42,7 +42,7 @@ public sealed class CodeExecutionService
 
             foreach (var diagnostic in e.Diagnostics) await errorMessages.WriteLineAsync(diagnostic.ToString());
 
-            return new UserCodeDto() { Id = userCode.Id, Code = errorMessages.ToString() };
+            return new UserCodeDto() { Id = userCode.Id, ErrorMessage = errorMessages.ToString() };
         }
     }
 }

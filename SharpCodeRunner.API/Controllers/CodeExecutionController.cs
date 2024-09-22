@@ -30,6 +30,12 @@ public sealed class CodeExecutionController : ControllerBase
         code.Id = Guid.NewGuid();
         var result = await _userCodeAdderService.AddUserCodeAsync(code);
 
-        return Ok(result.ErrorMessage ?? result.Code);
+        return Ok(new { errorMessage = result.ErrorMessage, result = result.Code });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> CheckConnection()
+    {
+        return Ok("Works!");
     }
 }
