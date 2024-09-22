@@ -22,10 +22,6 @@ public static class UserCodeExtensions
     /// </summary>
     public static UserCodeDto ToDto(this UserCode userCode)
     {
-        return new UserCodeDto
-        {
-            Id = userCode.Id,
-            Code = userCode.Code
-        };
+        return new UserCodeDto { Id = userCode.Id, Code = userCode.Code };
     }
 }

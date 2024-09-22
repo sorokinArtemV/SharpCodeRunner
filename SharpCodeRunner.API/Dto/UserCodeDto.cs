@@ -8,6 +8,7 @@ namespace SharpCodeRunner.Dto;
 /// </summary>
 public sealed class UserCodeDto
 {
+    [Required]
     public Guid Id { get; set; }
 
     [Required]
@@ -18,13 +19,8 @@ public sealed class UserCodeDto
     /// <summary>
     ///  Converts UserCodeDto to UserCode
     /// </summary>
-    /// <returns></returns>
     public UserCode ToUserCode()
     {
-        return new UserCode
-        {
-            Id = Id,
-            Code = Code
-        };
+        return new UserCode { Id = Id, Code = Code };
     }
 }
