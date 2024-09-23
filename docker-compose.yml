@@ -8,6 +8,8 @@
       - "5432:5432"
     volumes:
       - /var/lib/postgresql/data
+    networks:
+      - react-network
 
   react-app:
     build:
@@ -27,6 +29,8 @@
       - "8081:8081"
     networks:
       - react-network
+    depends_on:
+      - postgres
 
 networks:
   react-network:

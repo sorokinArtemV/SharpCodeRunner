@@ -56,7 +56,7 @@ const App = () => {
                 setIsLoading(true);
                 setIsResultError(false);
 
-                const response = await fetch('http://localhost:5000/api/codeexecution/execute', {
+                const response = await fetch('http://localhost:8080/api/codeexecution/execute', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
