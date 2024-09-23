@@ -20,11 +20,19 @@ builder.Services.AddDbContext<CodeExecutionDbContext>(opts =>
     opts.UseNpgsql(builder.Configuration.GetConnectionString("CodeExecutionDb"));
 });
 
+var serviceProvider = builder.Services.BuildServiceProvider();
+
+using (var scope = serviceProvider.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<CodeExecutionDbContext>();
+    dbContext.Database.Migrate();
+}
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:300")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
